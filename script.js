@@ -73,12 +73,12 @@ const submitGuess = () => {
   guessArr.forEach((letter, index) => {
     if (wordle.includes(letter)) {
       if (letter === wordle[index]) {
-        console.log(`${letter} is correct`)
+        sqrEl[index].classList.add("correct")
       } else {
-        console.log(`${letter} is correct but wrong place`)
+        sqrEl[index].classList.add("wrong-place")
       }
     } else {
-      console.log(`${letter} is wrong`)
+      sqrEl[index].classList.add("wrong")
     }
   })
 

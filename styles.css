@@ -27,3 +27,15 @@ main {
   border: 1px solid black;
   width: 100vh;
 }
+
+.correct {
+  background-color: #538d4e;
+}
+
+.wrong-place {
+  background-color: #818384;
+}
+
+.wrong {
+  background-color: #b59f3b;
+}
