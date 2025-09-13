@@ -1,7 +1,12 @@
+#title {
+  color: white;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
+  background-color: #121213;
 }
 header {
   text-align: center;
@@ -24,18 +29,26 @@ main {
 }
 
 .sqr {
-  border: 1px solid black;
+  border: 1px solid #818384;
   width: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 800;
 }
 
 .correct {
   background-color: #538d4e;
+  border: 1px solid #538d4e;
 }
 
 .wrong-place {
-  background-color: #818384;
+  background-color: #b59f3b;
+  border: 1px solid #b59f3b;
 }
 
 .wrong {
-  background-color: #b59f3b;
+  background-color: #818384;
+  border: 1px solid #818384;
 }

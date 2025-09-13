@@ -58,27 +58,24 @@ const handleLoss = () => {
 const submitGuess = () => {
   if (guessArr.length === 0) return
 
-  let guess = guessArr.join("").toLowerCase()
+  let guess = guessArr.join("")
 
-  if (!wordsList.includes(guess)) {
-    alert("Word doesn't exist!")
-    return
-  }
+  // if (!wordsList.includes(guess.toLowerCase())) {
+  //   alert("Word doesn't exist!")
+  //   return
+  // }
 
-  if (guess == wordle) {
-    handleWin()
-    return
-  }
   // check letters
   guessArr.forEach((letter, index) => {
+    let sqrIndex = getIndex(currentRow, index)
     if (wordle.includes(letter)) {
       if (letter === wordle[index]) {
-        sqrEl[index].classList.add("correct")
+        sqrEl[sqrIndex].classList.add("correct")
       } else {
-        sqrEl[index].classList.add("wrong-place")
+        sqrEl[sqrIndex].classList.add("wrong-place")
       }
     } else {
-      sqrEl[index].classList.add("wrong")
+      sqrEl[sqrIndex].classList.add("wrong")
     }
   })
 
@@ -86,9 +83,10 @@ const submitGuess = () => {
   currentCol = 0
   guessArr = []
 
-  if (currentRow === 6) {
+  if (guess === wordle) {
+    handleWin()
+  } else if (currentRow === 6) {
     handleLoss()
-    return
   }
 }
 
