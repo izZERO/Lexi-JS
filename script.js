@@ -1,5 +1,5 @@
 // Global variables
-const wordle = "APPLE" //wordsList[Math.floor(Math.random() * 2301)].toUpperCase()
+const wordle = wordsList[Math.floor(Math.random() * 2301)].toUpperCase()
 const wordleArr = wordle.split("")
 const rows = 6
 const cols = 5
@@ -14,6 +14,7 @@ console.log(wordle)
 
 // Elements
 const sqrEl = document.querySelectorAll(".sqr")
+const gameStatus = document.querySelector("#game-status")
 
 // Functions
 const getIndex = (row, col) => row * cols + col
@@ -40,12 +41,14 @@ const deleteLetter = () => {
 
 const handleWin = () => {
   isGameOver = true
-  alert("you have Won the game!!!")
+  gameStatus.textContent = "You Have Guessed The Word 😁"
+  // alert("you have Won the game!!!")
 }
 
 const handleLoss = () => {
   isGameOver = true
-  alert("you lost the game")
+  gameStatus.textContent = "You Have Lost 😞"
+  // alert("you lost the game")
 }
 
 const countLetterOccurrences = () => {
@@ -56,7 +59,6 @@ const countLetterOccurrences = () => {
       letterOccurrences[letter]++
     }
   })
-  console.log(letterOccurrences)
 }
 
 const submitGuess = () => {
@@ -65,10 +67,10 @@ const submitGuess = () => {
   const localOccurrences = { ...letterOccurrences }
   let guess = guessArr.join("")
 
-  // if (!wordsList.includes(guess.toLowerCase())) {
-  //   alert("Word doesn't exist!")
-  //   return
-  // }
+  if (!wordsList.includes(guess.toLowerCase())) {
+    alert("Word doesn't exist!")
+    return
+  }
 
   // check correct letters
   guessArr.forEach((letter, index) => {
