@@ -62,29 +62,43 @@ const handleWin = () => {
   isGameOver = true
   gameStatusEl.textContent = "You Have Guessed The Word 😁"
   playAgainButtonEl.textContent = "Play Again 🫡"
-  // alert("you have Won the game!!!")
 }
 
 const handleLoss = () => {
   isGameOver = true
   gameStatusEl.textContent = "You Have Lost 😞"
   playAgainButtonEl.textContent = "Play Again 🫡"
-  // alert("you lost the game")
 }
 
 const hintCount = () => {
   if (hints < 1) return
 
-  let filteredList = wordleArr.filter((letter) => {
-    return !correctGuess.includes(letter)
+  const localOccurrences = { ...letterOccurrences }
+
+  // subtract letters already marked as correct
+  correctGuess.forEach((letter) => {
+    if (localOccurrences[letter] > 0) {
+      localOccurrences[letter]--
+    }
   })
 
-  let newElem = document.createElement("span")
-  newElem.classList.add("#hint-message")
-  newElem.textContent = `You've used a Hint!, Letter is: ${
+  // build a list of available letters left for hints
+  let filteredList = []
+  Object.keys(localOccurrences).forEach((letter) => {
+    for (let i = 0; i < localOccurrences[letter]; i++) {
+      filteredList.push(letter)
+    }
+  })
+
+  // pick a random letter from remaining pool
+  let randomLetter =
     filteredList[Math.floor(Math.random() * filteredList.length)]
-  }`
+
+  let newElem = document.createElement("span")
+  newElem.classList.add("hint-message")
+  newElem.textContent = `You've used a Hint! Letter is: ${randomLetter}`
   hintsMessageEl.appendChild(newElem)
+
   remainingHints.textContent = --hints
 }
 
@@ -104,10 +118,10 @@ const submitGuess = () => {
   const localOccurrences = { ...letterOccurrences }
   let guess = guessArr.join("")
 
-  // if (!wordsList.includes(guess.toLowerCase())) {
-  //   alert("Word doesn't exist!")
-  //   return
-  // }
+  if (!wordsList.includes(guess.toLowerCase())) {
+    alert("Word doesn't exist!")
+    return
+  }
 
   // check correct letters
   guessArr.forEach((letter, index) => {
