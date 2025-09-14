@@ -10,10 +10,42 @@ header {
 }
 
 main {
+  padding-left: 28%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#hints-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 4px;
+  gap: 20px;
+  color: white;
+}
+
+#hints {
+  width: 125px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 60px;
+}
+#hint-image {
+  width: 75px;
+}
+
+#hints-remaining {
+  font-size: 2rem;
+  font-weight: 800;
+  text-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+#hint-message-container {
+  display: flex;
+  flex-direction: column;
+}
+#hint-message {
 }
 
 #play-again {

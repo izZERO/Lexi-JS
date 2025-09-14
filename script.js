@@ -9,12 +9,16 @@ let currentRow = 0
 let currentCol = 0
 let guessArr = []
 let correctGuess = []
+let hints = 3
 let letterOccurrences = {}
 
 // Elements
 const sqrEl = document.querySelectorAll(".sqr")
-const gameStatus = document.querySelector("#game-status")
-const playAgainButton = document.querySelector("#play-again")
+const gameStatusEl = document.querySelector("#game-status")
+const playAgainButtonEl = document.querySelector("#play-again")
+const hintsEl = document.querySelector("#hints")
+const hintsMessageEl = document.querySelector("#hint-message-container")
+const remainingHints = document.querySelector("#hints-remaining")
 
 // Functions
 const initializeGame = () => {
@@ -25,6 +29,8 @@ const initializeGame = () => {
   currentCol = 0
   guessArr = []
   correctGuess = []
+  hints = 3
+  remainingHints.textContent = hints
   letterOccurrences = {}
   countLetterOccurrences()
   console.log(wordle)
@@ -54,16 +60,32 @@ const deleteLetter = () => {
 
 const handleWin = () => {
   isGameOver = true
-  gameStatus.textContent = "You Have Guessed The Word 😁"
-  playAgainButton.textContent = "Play Again 🫡"
+  gameStatusEl.textContent = "You Have Guessed The Word 😁"
+  playAgainButtonEl.textContent = "Play Again 🫡"
   // alert("you have Won the game!!!")
 }
 
 const handleLoss = () => {
   isGameOver = true
-  gameStatus.textContent = "You Have Lost 😞"
-  playAgainButton.textContent = "Play Again 🫡"
+  gameStatusEl.textContent = "You Have Lost 😞"
+  playAgainButtonEl.textContent = "Play Again 🫡"
   // alert("you lost the game")
+}
+
+const hintCount = () => {
+  if (hints < 1) return
+
+  let filteredList = wordleArr.filter((letter) => {
+    return !correctGuess.includes(letter)
+  })
+
+  let newElem = document.createElement("span")
+  newElem.classList.add("#hint-message")
+  newElem.textContent = `You've used a Hint!, Letter is: ${
+    filteredList[Math.floor(Math.random() * filteredList.length)]
+  }`
+  hintsMessageEl.appendChild(newElem)
+  remainingHints.textContent = --hints
 }
 
 const countLetterOccurrences = () => {
@@ -82,10 +104,10 @@ const submitGuess = () => {
   const localOccurrences = { ...letterOccurrences }
   let guess = guessArr.join("")
 
-  if (!wordsList.includes(guess.toLowerCase())) {
-    alert("Word doesn't exist!")
-    return
-  }
+  // if (!wordsList.includes(guess.toLowerCase())) {
+  //   alert("Word doesn't exist!")
+  //   return
+  // }
 
   // check correct letters
   guessArr.forEach((letter, index) => {
@@ -94,6 +116,7 @@ const submitGuess = () => {
     if (letter === wordle[index]) {
       sqrEl[sqrIndex].classList.add("correct")
       localOccurrences[letter]--
+      correctGuess.push(letter)
     }
   })
   // check wrong placed letters
@@ -122,6 +145,7 @@ const submitGuess = () => {
   }
 }
 
+// Event Listeners
 document.addEventListener("keydown", (event) => {
   if (!isGameOver) {
     if (event.key === "Enter") {
@@ -134,6 +158,8 @@ document.addEventListener("keydown", (event) => {
   }
 })
 
-playAgainButton.addEventListener("click", initializeGame)
+playAgainButtonEl.addEventListener("click", initializeGame)
+
+hintsEl.addEventListener("click", hintCount)
 
 initializeGame()
