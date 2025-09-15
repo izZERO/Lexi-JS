@@ -24,6 +24,8 @@ main {
 #hints-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 250px;
   gap: 20px;
   color: white;
 }
@@ -32,7 +34,6 @@ main {
   width: 125px;
   display: flex;
   justify-content: space-between;
-  padding-left: 60px;
 }
 #hint-image {
   width: 75px;
@@ -96,4 +97,37 @@ main {
 .wrong {
   background-color: #818384;
   border: 1px solid #818384;
+}
+
+#keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: white;
+  margin-top: 30px;
+}
+
+.key-rows {
+  display: flex;
+  gap: 4px;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 60px;
+  background-color: #818384;
+  border: 1px solid #818384;
+  border-radius: 6px;
+}
+
+.key#key-enter {
+  width: 60px;
+}
+
+.key#key-delete {
+  width: 60px;
 }
