@@ -19,6 +19,7 @@ const playAgainButtonEl = document.querySelector("#play-again")
 const hintsEl = document.querySelector("#hints")
 const hintsMessageEl = document.querySelector("#hint-message-container")
 const remainingHints = document.querySelector("#hints-remaining")
+const keys = document.querySelectorAll(".key")
 
 // Functions
 const initializeGame = () => {
@@ -34,6 +35,7 @@ const initializeGame = () => {
   letterOccurrences = {}
   countLetterOccurrences()
   console.log(wordle)
+  console.log(guessArr)
 }
 
 const getIndex = (row, col) => row * cols + col
@@ -131,6 +133,11 @@ const submitGuess = () => {
       sqrEl[sqrIndex].classList.add("correct")
       localOccurrences[letter]--
       correctGuess.push(letter)
+      keys.forEach((key) => {
+        if (key.textContent === letter) {
+          key.classList.add("correct")
+        }
+      })
     }
   })
   // check wrong placed letters
@@ -143,7 +150,21 @@ const submitGuess = () => {
     if (wordle.includes(letter) && localOccurrences[letter] > 0) {
       sqrEl[sqrIndex].classList.add("wrong-place")
       localOccurrences[letter]--
+      keys.forEach((key) => {
+        if (key.textContent === letter) {
+          console.log(key.textContent)
+          key.classList.add("wrong-place")
+          console.log(key)
+        }
+      })
     } else {
+      keys.forEach((key) => {
+        if (key.textContent === letter) {
+          console.log(key.textContent)
+          key.classList.add("wrong")
+          console.log(key)
+        }
+      })
       sqrEl[sqrIndex].classList.add("wrong")
     }
   })
@@ -160,6 +181,8 @@ const submitGuess = () => {
 }
 
 // Event Listeners
+
+// key clicks
 document.addEventListener("keydown", (event) => {
   if (!isGameOver) {
     if (event.key === "Enter") {
@@ -172,6 +195,20 @@ document.addEventListener("keydown", (event) => {
   }
 })
 
+//screen keyboard
+keys.forEach((key) => {
+  key.addEventListener("click", () => {
+    if (!isGameOver) {
+      if (key.textContent === "ENTER") {
+        submitGuess()
+      } else if (key.id === "key-delete") {
+        deleteLetter()
+      } else if (charRegex.test(key.textContent)) {
+        pushLetter(key.textContent)
+      }
+    }
+  })
+})
 playAgainButtonEl.addEventListener("click", initializeGame)
 
 hintsEl.addEventListener("click", hintCount)
