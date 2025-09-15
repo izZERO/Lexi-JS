@@ -13,6 +13,7 @@ let hints = 3
 let letterOccurrences = {}
 
 // Elements
+const mainContainer = document.getElementById("game-container")
 const sqrEl = document.querySelectorAll(".sqr")
 const gameStatusEl = document.querySelector("#game-status")
 const playAgainButtonEl = document.querySelector("#play-again")
@@ -20,22 +21,35 @@ const hintsEl = document.querySelector("#hints")
 const hintsMessageEl = document.querySelector("#hint-message-container")
 const remainingHints = document.querySelector("#hints-remaining")
 const keys = document.querySelectorAll(".key")
-
+console.log(mainContainer)
 // Functions
 const initializeGame = () => {
+  isGameOver = false
   wordle = wordsList[Math.floor(Math.random() * 2301)].toUpperCase()
   wordleArr = wordle.split("")
-  isGameOver = false
   currentRow = 0
   currentCol = 0
   guessArr = []
   correctGuess = []
   hints = 3
   remainingHints.textContent = hints
+  gameStatusEl.textContent = ""
+  hintsMessageEl.innerHTML = ""
+  playAgainButtonEl.textContent = "Play Again 🫡"
   letterOccurrences = {}
   countLetterOccurrences()
+
+  sqrEl.forEach((sqr) => {
+    sqr.textContent = ""
+    sqr.classList.remove("correct", "wrong", "wrong-place")
+  })
+
+  keys.forEach((key) => {
+    key.classList.remove("correct", "wrong", "wrong-place")
+  })
+
+  mainContainer.focus()
   console.log(wordle)
-  console.log(guessArr)
 }
 
 const getIndex = (row, col) => row * cols + col
@@ -152,17 +166,13 @@ const submitGuess = () => {
       localOccurrences[letter]--
       keys.forEach((key) => {
         if (key.textContent === letter) {
-          console.log(key.textContent)
           key.classList.add("wrong-place")
-          console.log(key)
         }
       })
     } else {
       keys.forEach((key) => {
         if (key.textContent === letter) {
-          console.log(key.textContent)
           key.classList.add("wrong")
-          console.log(key)
         }
       })
       sqrEl[sqrIndex].classList.add("wrong")
