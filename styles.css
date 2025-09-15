@@ -7,6 +7,11 @@ body {
 header {
   text-align: center;
   color: white;
+  height: 100px;
+}
+
+#title {
+  margin-bottom: -15px;
 }
 
 main {
@@ -16,6 +21,7 @@ main {
   justify-content: space-evenly;
 }
 #game-container {
+  outline: none;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -84,21 +90,6 @@ main {
   font-weight: 800;
 }
 
-.correct {
-  background-color: #538d4e;
-  border: 1px solid #538d4e;
-}
-
-.wrong-place {
-  background-color: #b59f3b;
-  border: 1px solid #b59f3b;
-}
-
-.wrong {
-  background-color: #818384;
-  border: 1px solid #818384;
-}
-
 #keyboard {
   display: flex;
   flex-direction: column;
@@ -130,4 +121,19 @@ main {
 
 .key#key-delete {
   width: 60px;
+}
+
+.correct {
+  background-color: #538d4e;
+  border: 1px solid #538d4e;
+}
+
+.wrong-place {
+  background-color: #b59f3b;
+  border: 1px solid #b59f3b;
+}
+
+.wrong {
+  background-color: #3a3a3c;
+  border: 1px solid #3a3a3c;
 }

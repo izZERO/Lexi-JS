@@ -221,6 +221,10 @@ keys.forEach((key) => {
 })
 playAgainButtonEl.addEventListener("click", initializeGame)
 
-hintsEl.addEventListener("click", hintCount)
+hintsEl.addEventListener("click", () => {
+  if (!isGameOver) {
+    hintCount()
+  }
+})
 
 initializeGame()
