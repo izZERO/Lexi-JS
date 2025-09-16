@@ -35,7 +35,7 @@ const initializeGame = () => {
   remainingHints.textContent = hints
   gameStatusEl.textContent = ""
   hintsMessageEl.innerHTML = ""
-  playAgainButtonEl.textContent = "Play Again 🫡"
+  playAgainButtonEl.textContent = "Restart Game ❓"
   letterOccurrences = {}
   countLetterOccurrences()
 
@@ -139,55 +139,67 @@ const submitGuess = () => {
     return
   }
 
-  // check correct letters
+  // flip animation
   guessArr.forEach((letter, index) => {
     let sqrIndex = getIndex(currentRow, index)
+    sqrEl[sqrIndex].classList.add("flip")
 
-    if (letter === wordle[index]) {
-      sqrEl[sqrIndex].classList.add("correct")
-      localOccurrences[letter]--
-      correctGuess.push(letter)
-      keys.forEach((key) => {
-        if (key.textContent === letter) {
-          key.classList.add("correct")
-        }
-      })
-    }
-  })
-  // check wrong placed letters
-  guessArr.forEach((letter, index) => {
-    let sqrIndex = getIndex(currentRow, index)
-
-    // skip already correct
-    if (sqrEl[sqrIndex].classList.contains("correct")) return
-
-    if (wordle.includes(letter) && localOccurrences[letter] > 0) {
-      sqrEl[sqrIndex].classList.add("wrong-place")
-      localOccurrences[letter]--
-      keys.forEach((key) => {
-        if (key.textContent === letter) {
-          key.classList.add("wrong-place")
-        }
-      })
-    } else {
-      keys.forEach((key) => {
-        if (key.textContent === letter) {
-          key.classList.add("wrong")
-        }
-      })
-      sqrEl[sqrIndex].classList.add("wrong")
-    }
+    setTimeout(() => {
+      sqrEl[sqrIndex].classList.remove("flip")
+    }, 600)
   })
 
-  currentRow++
-  currentCol = 0
-  guessArr = []
+  setTimeout(() => {
+    // check correct letters
+    guessArr.forEach((letter, index) => {
+      let sqrIndex = getIndex(currentRow, index)
 
-  if (guess === wordle) {
-    handleWin()
-  } else if (currentRow === rows) {
-    handleLoss()
-  }
+      if (letter === wordle[index]) {
+        sqrEl[sqrIndex].classList.add("correct")
+        localOccurrences[letter]--
+        correctGuess.push(letter)
+        keys.forEach((key) => {
+          if (key.textContent === letter) {
+            key.classList.add("correct")
+          }
+        })
+      }
+    })
+    // check wrong placed letters
+    guessArr.forEach((letter, index) => {
+      let sqrIndex = getIndex(currentRow, index)
+
+      // skip already correct
+      if (sqrEl[sqrIndex].classList.contains("correct")) return
+
+      if (wordle.includes(letter) && localOccurrences[letter] > 0) {
+        sqrEl[sqrIndex].classList.add("wrong-place")
+        localOccurrences[letter]--
+        keys.forEach((key) => {
+          if (key.textContent === letter) {
+            key.classList.add("wrong-place")
+          }
+        })
+      } else {
+        keys.forEach((key) => {
+          if (key.textContent === letter) {
+            key.classList.add("wrong")
+          }
+        })
+        sqrEl[sqrIndex].classList.add("wrong")
+      }
+    })
+
+    currentRow++
+    currentCol = 0
+    guessArr = []
+
+    if (guess === wordle) {
+      handleWin()
+    } else if (currentRow === rows) {
+      handleLoss()
+    }
+  }, 300)
 }
 
 // Event Listeners
