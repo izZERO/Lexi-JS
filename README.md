@@ -1,7 +1,7 @@
 # ***Lexi (A Wordle Game)***
 ## Date: 9/11/2025
 ### By: Hasan Al Dhaif
-[Website](http://www.google.com) | [GitHub](https://github.com/izZERO) | [Linkedln](https://www.linkedin.com/in/hasan-aldhaif/)
+[GitHub](https://github.com/izZERO) | [Linkedln](https://www.linkedin.com/in/hasan-aldhaif/)
 
 ***
 # ***Live Demo***
