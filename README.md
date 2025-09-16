@@ -4,6 +4,10 @@
 [Website](http://www.google.com) | [GitHub](https://github.com/izZERO) | [Linkedln](https://www.linkedin.com/in/hasan-aldhaif/)
 
 ***
+# ***Live Demo***
+* [Play it Here!](https://lexi-js.surge.sh/)
+
+***
 # ***Description***
 Wordle Clone , A simple word guessing game where players have six attempts to guess a hidden five-letter word, with feedback given for correct letters and positions.
 
