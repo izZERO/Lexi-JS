@@ -15,103 +15,36 @@
     <title>Lexi</title>
   </head>
   <body>
-    <header>
-      <h1 id="title">Lexi</h1>
-      <h3 id="game-status"></h3>
-    </header>
-    <main>
-      <button id="play-again">Change The Word 🙂</button>
-      <div id="game-container" tabindex="0">
-        <div class="rows" id="row-1">
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-        </div>
-        <div class="rows" id="row-2">
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-        </div>
-        <div class="rows" id="row-3">
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-        </div>
+    <div id="main-page">
+      <div id="guide-container">
+        <h1 id="how-to-play">How To Play</h1>
+        <h3 class="guide">Guess The Word in 6 Tries</h3>
 
-        <div class="rows" id="row-4">
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-        </div>
+        <ul id="guide-list">
+          <li>Each guess must be a valid 5-letter word.</li>
+          <li>
+            The color of the tiles will change to show how close your guess was
+            to the word.
+          </li>
+        </ul>
 
-        <div class="rows" id="row-5">
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-        </div>
-
-        <div class="rows" id="row-6">
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-          <div class="sqr"></div>
-        </div>
+        <h3 class="guide">Examples</h3>
+        <ul class="example-list">
+          <img src="./Images/example1.png" width="350px" />
+          <li>W is in the word and in the correct spot.</li>
+          <br />
+          <img src="./Images/example2.png" width="350px" />
+          <li>I is in the word but in the wrong spot.</li>
+          <br />
+          <img src="./Images/example3.png" width="350px" />
+          <li>U is not in the word in any spot.</li>
+        </ul>
       </div>
-      <div id="hints-container">
-        <div id="hints">
-          <img id="hint-image" src="./images/lightbulb.png" />
-          <div id="hints-remaining"></div>
-        </div>
-        <div id="hint-message-container"></div>
-      </div>
-    </main>
-    <div id="keyboard">
-      <div class="key-rows" id="key-row-1">
-        <div class="key">Q</div>
-        <div class="key">W</div>
-        <div class="key">E</div>
-        <div class="key">R</div>
-        <div class="key">T</div>
-        <div class="key">Y</div>
-        <div class="key">U</div>
-        <div class="key">I</div>
-        <div class="key">O</div>
-        <div class="key">P</div>
-      </div>
-      <div class="key-rows" id="key-row-2">
-        <div class="key">A</div>
-        <div class="key">S</div>
-        <div class="key">D</div>
-        <div class="key">F</div>
-        <div class="key">G</div>
-        <div class="key">H</div>
-        <div class="key">J</div>
-        <div class="key">K</div>
-        <div class="key">L</div>
-      </div>
-      <div class="key-rows" id="key-row-3">
-        <div class="key" id="key-enter">ENTER</div>
-        <div class="key">Z</div>
-        <div class="key">X</div>
-        <div class="key">C</div>
-        <div class="key">V</div>
-        <div class="key">B</div>
-        <div class="key">N</div>
-        <div class="key">M</div>
-        <div class="key" id="key-delete">
-          <img src="./Images/delete.png" alt="delete" width="30px" />
-        </div>
+      <div id="play">
+        <img src="./Images/MainLogo.png" width="400px" />
+        <button id="play-btn" onclick="document.location='game.html'">
+          Play
+        </button>
       </div>
     </div>
   </body>
