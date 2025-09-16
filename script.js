@@ -21,7 +21,6 @@ const hintsEl = document.querySelector("#hints")
 const hintsMessageEl = document.querySelector("#hint-message-container")
 const remainingHints = document.querySelector("#hints-remaining")
 const keys = document.querySelectorAll(".key")
-console.log(mainContainer)
 // Functions
 const initializeGame = () => {
   isGameOver = false
@@ -50,7 +49,6 @@ const initializeGame = () => {
   })
 
   mainContainer.focus()
-  console.log(wordle)
 }
 
 const getIndex = (row, col) => row * cols + col
