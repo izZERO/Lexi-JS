@@ -78,6 +78,12 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+.hint-message {
+  color: #7f7f7f;
+  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.2);
+}
+
 #main-buttons {
   display: flex;
   flex-direction: column;
@@ -94,7 +100,7 @@ main {
   margin-left: 50px;
   padding: 15px 45px;
   font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: 800;
   font-style: normal;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -117,7 +123,7 @@ main {
   margin-left: 50px;
   padding: 15px 45px;
   font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: 800;
   font-style: normal;
   cursor: pointer;
   transition: all 0.2s ease;

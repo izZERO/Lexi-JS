@@ -24,29 +24,30 @@ Wordle Clone , A simple word guessing game where players have six attempts to gu
 * The color of the tiles will change to show how close your guess was to the word.
 
 ### Examples
-![Examples](Examples.png)
+![Example1](./Images/example1.png)
+* **W** is in the word and in the correct spot.
+
+![Example1](./Images/example2.png)
+* **I** is in the word but in the wrong spot.
+
+![Example1](./Images/example3.png)
+* **U** is not in the word in any spot.
 
 # ***Figma Design***
 * [Figma Design Link](https://www.figma.com/design/BLooE0P8JRU96lSwSwk0Ha/Untitled?node-id=0-1&t=kq2Y0WMfsb9eAgxH-1)
 
-![Design](Design.png)
+![Design](./Images/Design.png)
 
 # ***Screenshots***
-### Image Header 1
+### Landing Page
 
-![Image](https://images.steamusercontent.com/ugc/2058758605644941949/CC09FA49330689F6F2E10627580258DF03DF0ED2/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false)
+![LandingPage](./Images/LandingPage.png)
 
-### Image Header 2
+### Game Page
 
-![Image](https://images.steamusercontent.com/ugc/2058758605644941949/CC09FA49330689F6F2E10627580258DF03DF0ED2/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false)
-
-- [ ] Future Update 1
-- [ ] Future Update 2
-- [x] Completed Update
-- [x] ~~Strikethrough~~ Items Also
+![Image](./Images/GamePage.png)
 
 # ***Credits***
 
-Funny Images: [Google]()
-Markdown Guide: [ia.net]()
-Markdown Cheatsheet: [GitHub]()
+Original Game Creators: [Wordle](https://www.nytimes.com/games/wordle/index.html)
+
