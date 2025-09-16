@@ -34,6 +34,7 @@ const initializeGame = () => {
   hints = 3
   remainingHints.textContent = hints
   gameStatusEl.textContent = ""
+  gameStatusEl.classList.remove("game-status-animation")
   hintsMessageEl.innerHTML = ""
   playAgainButtonEl.textContent = "Restart Game ❓"
   letterOccurrences = {}
@@ -77,12 +78,14 @@ const deleteLetter = () => {
 const handleWin = () => {
   isGameOver = true
   gameStatusEl.textContent = "You Have Guessed The Word 😁"
+  gameStatusEl.classList.add("game-status-animation")
   playAgainButtonEl.textContent = "Play Again 🫡"
 }
 
 const handleLoss = () => {
   isGameOver = true
   gameStatusEl.textContent = "You Have Lost 😞"
+  gameStatusEl.classList.add("game-status-animation")
   playAgainButtonEl.textContent = "Play Again 🫡"
 }
 

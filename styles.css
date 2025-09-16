@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  padding: 0;
+  overflow: hidden;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -25,7 +27,19 @@ header {
   text-align: center;
   color: white;
   height: 100px;
-  margin-bottom: 10px;
+  margin-bottom: 44px;
+}
+
+#game-status {
+  margin-top: -18px;
+}
+
+.game-status-animation {
+  opacity: 1;
+  animation-name: pop;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in;
+  animation-duration: 3s;
 }
 
 main {
