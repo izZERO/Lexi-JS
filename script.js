@@ -151,6 +151,19 @@ const submitGuess = () => {
   })
 
   setTimeout(() => {
+    const updateKeyboardKey = (letter, status) => {
+      keys.forEach((key) => {
+        if (key.textContent === letter) {
+          if (key.classList.contains("correct")) return
+          if (key.classList.contains("wrong-place") && status === "wrong")
+            return
+
+          key.classList.remove("correct", "wrong-place", "wrong")
+          key.classList.add(status)
+        }
+      })
+    }
+
     // check correct letters
     guessArr.forEach((letter, index) => {
       let sqrIndex = getIndex(currentRow, index)
@@ -159,14 +172,10 @@ const submitGuess = () => {
         sqrEl[sqrIndex].classList.add("correct")
         localOccurrences[letter]--
         correctGuess.push(letter)
-        keys.forEach((key) => {
-          if (key.textContent === letter) {
-            key.classList.add("correct")
-          }
-        })
+        updateKeyboardKey(letter, "correct")
       }
     })
-    // check wrong placed letters
+
     guessArr.forEach((letter, index) => {
       let sqrIndex = getIndex(currentRow, index)
 
@@ -176,18 +185,10 @@ const submitGuess = () => {
       if (wordle.includes(letter) && localOccurrences[letter] > 0) {
         sqrEl[sqrIndex].classList.add("wrong-place")
         localOccurrences[letter]--
-        keys.forEach((key) => {
-          if (key.textContent === letter) {
-            key.classList.add("wrong-place")
-          }
-        })
+        updateKeyboardKey(letter, "wrong-place")
       } else {
-        keys.forEach((key) => {
-          if (key.textContent === letter) {
-            key.classList.add("wrong")
-          }
-        })
         sqrEl[sqrIndex].classList.add("wrong")
+        updateKeyboardKey(letter, "wrong")
       }
     })
 
