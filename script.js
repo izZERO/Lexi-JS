@@ -82,7 +82,7 @@ const handleWin = () => {
 
 const handleLoss = () => {
   isGameOver = true
-  gameStatusEl.textContent = "You Have Lost 😞"
+  gameStatusEl.textContent = `You Have Lost 😞, The Word was \" ${wordle} \"`
   gameStatusEl.classList.add("game-status-animation")
   playAgainButtonEl.textContent = "Play Again 🫡"
 }
