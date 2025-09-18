@@ -51,6 +51,11 @@ Wordle Clone , A simple word guessing game where players have six attempts to gu
 
 ![Image](./Images/GamePage.png)
 
+# ***Future Work***
+- [ ] Hard Mode
+- [ ] Timer Mode
+- [ ] Toggle Theme (Dark / Light) Modes
+
 # ***Credits***
 
 Original Game Creators: [Wordle](https://www.nytimes.com/games/wordle/index.html)

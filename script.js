@@ -21,6 +21,7 @@ const hintsEl = document.querySelector("#hints")
 const hintsMessageEl = document.querySelector("#hint-message-container")
 const remainingHints = document.querySelector("#hints-remaining")
 const keys = document.querySelectorAll(".key")
+
 // Functions
 const initializeGame = () => {
   isGameOver = false
@@ -47,7 +48,7 @@ const initializeGame = () => {
   keys.forEach((key) => {
     key.classList.remove("correct", "wrong", "wrong-place")
   })
-
+  console.log(wordle)
   mainContainer.focus()
 }
 
