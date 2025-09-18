@@ -48,7 +48,6 @@ const initializeGame = () => {
   keys.forEach((key) => {
     key.classList.remove("correct", "wrong", "wrong-place")
   })
-  console.log(wordle)
   mainContainer.focus()
 }
 
